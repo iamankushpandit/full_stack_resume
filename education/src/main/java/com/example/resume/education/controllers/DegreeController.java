@@ -18,28 +18,49 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.resume.education.models.Degree;
 import com.example.resume.education.repositories.DegreeRepository;
 
+/**
+ * Rest controller for Degree.
+ *
+ * @author Ankush Pandit
+ */
 @RestController
 @RequestMapping("/api/v1/education")
+// The following is done to allow request from the react front end to be accepted.
 @CrossOrigin(origins = "http://localhost:3000", methods = { RequestMethod.OPTIONS, RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE }, allowedHeaders = "*", allowCredentials = "true")
-
 public class DegreeController
 {
     @Autowired
     private DegreeRepository degreeRepository;
 
+    /**
+     * @return a list of all the {@link Degree}s.
+     */
     @GetMapping
-    public List<com.example.resume.education.models.Degree> list()
+    public List<Degree> list()
     {
         return degreeRepository.findAll();
     }
 
+    /**
+     * Get an {@link Degree} based on the given award_id.
+     *
+     * @param degree_id The id of the {@link Degree} that needs to be fetched.
+     * @return the {@link Degree}.
+     */
     @GetMapping
-    @RequestMapping("/degree_id/{degree_id}")
+    @RequestMapping("{degree_id}")
     public Degree get(@PathVariable final String degree_id)
     {
         return degreeRepository.getById(Long.parseLong(degree_id));
     }
 
+    /**
+     * Return all the {@link Degree} for a given candidate.
+     *
+     * @param candidate_id the String id of the candidate.
+     *
+     * @return all {@link Degree}s for the given candidate_id.
+     */
     @GetMapping()
     @RequestMapping("/candidate_id/{candidate_id}")
     public List<Degree> getByCandidate_Id(@PathVariable final String candidate_id)
@@ -47,18 +68,36 @@ public class DegreeController
         return degreeRepository.findByCandidateId(Long.parseLong(candidate_id));
     }
 
+    /**
+     * Create a new {@link Degree}.
+     *
+     * @param degree the {@link Degree} that needs to be created.
+     * @return the created {@link Degree}.
+     */
     @PostMapping
     public Degree create(@RequestBody final Degree degree)
     {
         return degreeRepository.saveAndFlush(degree);
     }
 
+    /**
+     * Delete the {@link Degree}.
+     *
+     * @param degree_id the degree_id of the {@link Degree} to be deleted.
+     */
     @DeleteMapping(value = "{degree_id}")
     public void delete(@PathVariable final String degree_id)
     {
         degreeRepository.deleteById(Long.parseLong(degree_id));
     }
 
+    /**
+     * Update an existing {@link Degree}.
+     *
+     * @param degree_id The id of the {@link Degree} to be updated.
+     * @param degree the new {@link Degree} object.
+     * @return the updated {@link Degree} object.
+     */
     @PutMapping(value = "{degree_id}")
     public Degree update(@PathVariable final String degree_id, @RequestBody final Degree degree)
     {
