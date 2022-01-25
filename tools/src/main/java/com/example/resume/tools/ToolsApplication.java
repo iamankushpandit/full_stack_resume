@@ -2,16 +2,22 @@ package com.example.resume.tools;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
 
+/**
+ * Spring boot application for the Tools service.
+ *
+ * @author Ankush Pandit
+ */
 @SpringBootApplication
-@EntityScan("com.example.resume.tools.*")
 public class ToolsApplication
 {
-
+    /**
+     * Main entry point for the service.
+     *
+     * @param args String args to be passed in as a String array.
+     */
     public static void main(final String[] args)
     {
         SpringApplication.run(ToolsApplication.class, args);
     }
-
 }

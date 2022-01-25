@@ -18,20 +18,35 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.resume.tools.models.Tools;
 import com.example.resume.tools.repositories.ToolsRepository;
 
+/**
+ * Rest controller for Tools.
+ *
+ * @author Ankush Pandit
+ */
 @RestController
 @RequestMapping("/api/v1/tools")
+// The following is done to allow request from the react front end to be accepted.
 @CrossOrigin(origins = "http://localhost:3000", methods = { RequestMethod.OPTIONS, RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE }, allowedHeaders = "*", allowCredentials = "true")
 public class ToolsController
 {
     @Autowired
     private ToolsRepository toolsRepository;
 
+    /**
+     * @return a list of all the {@link Tools}s.
+     */
     @GetMapping
     public List<Tools> list()
     {
         return toolsRepository.findAll();
     }
 
+    /**
+     * Get an {@link Tools} based on the given tools_id.
+     *
+     * @param tools_id The tools_id of the {@link Tools} that needs to be fetched.
+     * @return the {@link Tools}.
+     */
     @GetMapping
     @RequestMapping("/tools_id/{tools_id}")
     public Tools get(@PathVariable final String tools_id)
@@ -39,6 +54,13 @@ public class ToolsController
         return toolsRepository.getById(Long.parseLong(tools_id));
     }
 
+    /**
+     * Return all the {@link Tools} for a given candidate.
+     *
+     * @param candidate_id the String id of the candidate.
+     *
+     * @return all {@link Tools}s for the given candidate_id.
+     */
     @GetMapping()
     @RequestMapping("/candidate_id/{candidate_id}")
     public List<Tools> getByCandidate_Id(@PathVariable final String candidate_id)
@@ -46,18 +68,36 @@ public class ToolsController
         return toolsRepository.findByCandidateId(Long.parseLong(candidate_id));
     }
 
+    /**
+     * Create a new {@link Tools}.
+     *
+     * @param tools the {@link Tools} that needs to be created.
+     * @return the created {@link Tools}.
+     */
     @PostMapping
     public Tools create(@RequestBody final Tools tools)
     {
         return toolsRepository.saveAndFlush(tools);
     }
 
+    /**
+     * Delete the {@link Tools}.
+     *
+     * @param tools_id the tools_id of the {@link Tools} to be deleted.
+     */
     @DeleteMapping(value = "{tools_id}")
     public void delete(@PathVariable final String tools_id)
     {
         toolsRepository.deleteById(Long.parseLong(tools_id));
     }
 
+    /**
+     * Update an existing {@link Tools}.
+     *
+     * @param tools_id The id of the {@link Tools} to be updated.
+     * @param tools the new {@link Tools} object.
+     * @return the updated {@link Tools} object.
+     */
     @PutMapping(value = "{tools_id}")
     public Tools update(@PathVariable final String tools_id, @RequestBody final Tools tools)
     {
