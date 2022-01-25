@@ -1,0 +1,19 @@
+CREATE TABLE headline
+(
+    headline_id          		SERIAL          PRIMARY KEY,
+    candidate_id				integer			NOT NULL,
+    headline                    text            NOT NULL
+);
+
+INSERT INTO headline
+(
+headline_id,
+candidate_id,	
+headline
+)
+VALUES
+(
+1,
+1,
+'Software Engineer IV (Associate Lead Software Engineer) with 12 year working experience with various development and support roles.'
+);

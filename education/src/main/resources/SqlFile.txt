@@ -1,0 +1,70 @@
+CREATE TABLE degree
+(
+    degree_id                SERIAL PRIMARY KEY,
+    candidate_id             integer       NOT NULL,
+    degree_name              varchar(80)   NOT NULL,
+	degree_complete_date     varchar(80)   NOT NULL,
+	degree_college_name      varchar(80)   NOT NULL,
+    degree_college_address   varchar(1024) NOT NULL,
+	degree_specialization    varchar(1024) NOT NULL
+);
+
+INSERT INTO degree (degree_id,candidate_id,degree_name,degree_complete_date,degree_college_name,degree_college_address,degree_specialization) 
+VALUES (1,1,'Master of Science in Computer Science','December 2009','State University of New York Institute of Technology','Utica, NY','Mobile Application Prototyping.');
+
+INSERT INTO degree (degree_id,candidate_id,degree_name,degree_complete_date,degree_college_name,degree_college_address,degree_specialization) 
+VALUES (2,1,'Bachelor of Engineering in Computer Science','May 2007','Pandit Ravishankar Shukla University','Raipur, CG, India','Mobile Application Prototyping.');
+
+
+CREATE TABLE certification
+(
+    certification_id                  SERIAL PRIMARY KEY,
+    candidate_id                      integer       NOT NULL,
+    certification_name                varchar(80)   NOT NULL,
+	certification_complete_date       varchar(80)   NOT NULL,
+	certification_institution_name    varchar(80)   NOT NULL,
+    certification_institution_address varchar(1024) NOT NULL,
+);
+
+CREATE TABLE certification
+(
+    certification_id                SERIAL PRIMARY KEY,
+    candidate_id             integer       NOT NULL,
+    certification_name              varchar(80)   NOT NULL,
+	certification_complete_date     varchar(80)   NOT NULL,
+	certification_institution_name      varchar(80)   NOT NULL
+);
+
+INSERT INTO certification
+(
+certification_id,
+candidate_id,	
+certification_name,
+certification_complete_date,
+certification_institution_name
+)
+VALUES
+(
+2,
+1,
+'WindRiver Linux',
+'June 2010',
+'Wind River Vx Works'
+);
+
+INSERT INTO certification
+(
+certification_id,
+candidate_id,	
+certification_name,
+certification_complete_date,
+certification_institution_name
+)
+VALUES
+(
+2,
+1,
+'RedHat Linux Essentials (RH003)',
+'August 2010',
+'RedHat'
+);

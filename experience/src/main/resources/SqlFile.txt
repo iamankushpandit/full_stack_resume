@@ -1,0 +1,319 @@
+CREATE TABLE company
+(
+    company_id          		SERIAL PRIMARY KEY,
+    company_name        		varchar(1024)   NOT NULL,
+	company_first_address 		varchar(1024) NOT NULL,
+	company_second_address 		varchar(1024) NOT NULL,
+	company_city 				varchar(256) NOT NULL,
+	company_state 				varchar(256) NOT NULL,
+	company_contry 				varchar(128) NOT NULL,
+	company_zip 				varchar(64) NOT NULL,
+	company_email 				varchar(1024) NOT NULL,
+	company_phone_number 		varchar(64) NOT NULL
+);
+
+INSERT INTO company (company_id,company_name,company_first_address,company_second_address,company_city,company_state,company_contry,company_zip,company_email,company_phone_number) VALUES (1,'Cerner Corporation.','2800 Rock Creek Pkwy','','Kansas City','Missouri','USA','64117','N/A','+1-866-434-1543');
+
+INSERT INTO company (company_id,company_name,company_first_address,company_second_address,company_city,company_state,company_contry,company_zip,company_email,company_phone_number) VALUES (2,'Datacom Systems','9 Adler Drive','','East Syracuse','New York','USA','13057','N/A','+1 315 463 9541');
+
+CREATE TABLE job_profile
+(
+    job_profile_id          		SERIAL PRIMARY KEY,
+    candidate_id				integer			NOT NULL,
+	job_title   	     		varchar(1024)   NOT NULL,
+	company_id			 		integer			NOT NULL,
+	job_start_date				date			NOT NULL,
+	job_end_date				date			,
+	job_duties					text[1024]      NOT NULL,
+	job_highlights				text[1024]      NOT NULL,
+	current_job					boolean
+);
+
+INSERT INTO job_profile
+(
+job_profile_id,
+candidate_id,	
+job_title,	
+company_id,	
+job_start_date,
+job_end_date,	
+job_duties,	
+job_highlights,
+current_job
+)
+VALUES
+(
+1,
+1,
+'Associate Lead Software Engineer',
+1,
+'2021-02-01',
+NULL,
+'{
+"System Level Design and implementation.",
+"Advance troubleshooting of technical issues.",
+"Automation of tests.",
+"Spike existing and new solutions.",
+"Leading efforts to modernize the development environment.",
+"Collaboration with open source community to resolve issues.",
+"Managing framework contribution work from outside the team.",
+"Mentoring new associates internal and external to the team.",
+"Developing methods for the team to achieve CI/CD.",
+"Coordinating demonstration of developed components.",
+"Knowledge transfer through talks within the team and at yearly conference.",
+"Engineering Culture contributor through talk selecting and discussions.",
+"Improving process and security for products inside and outside of the team.",
+"Reduced the release time from Weeks to a few hours."
+}',
+'{
+" "
+}',
+TRUE
+);
+
+INSERT INTO job_profile
+(
+job_profile_id,
+candidate_id,	
+job_title,	
+company_id,	
+job_start_date,
+job_end_date,	
+job_duties,	
+job_highlights,
+current_job
+)
+VALUES
+(
+2,
+1,
+'Senior Software Engineer',
+1,
+'2016-08-01',
+'2021-01-31',
+'{
+"Responsible for enhancements,Code analysis, implementation, debugging, documenting and unit testing medical image rendering, analyzing and manipulating software (Cerner SkyVue) for radiologist, cardiologist and health professionals to better assist patients.",
+"Strategic technical designing of features used by Radiologist",
+"Debug internal and client issues",
+"Team code reviews, project estimations, automating software building pipelines",
+"Building Monorepo, facilitating code version control strategies",
+"Providing inputs to technical feasibility documentation",
+"Mentoring new associates", 
+"Prototyping future projects", 
+"Presenting field related topics and technical conference observations to team."
+}',
+'{
+" "
+}',
+FALSE
+);
+
+INSERT INTO job_profile
+(
+job_profile_id,
+candidate_id,	
+job_title,	
+company_id,	
+job_start_date,
+job_end_date,	
+job_duties,	
+job_highlights,
+current_job
+)
+VALUES
+(
+3,
+1,
+'Software Engineer',
+1,
+'2013-12-01',
+'2016-07-31',
+'{
+"Building system to analyze the Support org efficiencies and dead locks.",
+"Investigating, debugging and documenting to resolve client issues in a timely manner.",
+"Handling technical investigations and escalations following an investigation from a software analyst.",
+"Identifying code defects/enhancements within Laboratory Admin Systems and Imaging Integration Systems for Cerner Applications.",
+"Identification of code changes through investigation of service records, analysis of log files.",
+"Examining client installed components while comparing with in-house implementation.",
+"Debugging through front-end (.Net, Visual Basic and Java) code, middleware (C++, Java) and back-end (Oracle SQL Manager/CCL)",
+"Discuss, propose resolutions of code defects with the development engineering team and raise appropriate change requests",
+"Further generate documented workaround and notify analysts and clients detailing resolution of an issue.",
+"Creating various diagnostic packages and RPRs to debug and resolve issues."
+}',
+'{
+" "
+}',
+FALSE
+);
+
+INSERT INTO job_profile
+(
+job_profile_id,
+candidate_id,	
+job_title,	
+company_id,	
+job_start_date,
+job_end_date,	
+job_duties,	
+job_highlights,
+current_job
+)
+VALUES
+(
+4,
+1,
+'Software Engineer',
+2,
+'2009-08-01',
+'2013-11-30',
+'{
+"Worked on remote device management systems, developed & maintained Datacom API.",
+"Responsible for development of various WindRiver Linux application projects.",
+"Created various test and production tools.",
+"Code version management and developer assistance.",
+"Specific language interoperable programming in the area if C API to PHP-CGI.",
+"Worked with Microsoft Office automation tools including sophisticated CVS file processing."job_profile
+}',
+'{
+" "
+}',
+FALSE
+);
+
+CREATE TABLE awards
+(
+    awards_id                SERIAL PRIMARY KEY,
+    candidate_id             integer       NOT NULL,
+    project_name             varchar(80)   NOT NULL,
+    awards_name              varchar(80)   NOT NULL,
+	awards_year              varchar(80)   NOT NULL,
+	awards_institution_name  varchar(80)   NOT NULL
+);
+
+INSERT INTO awards
+(
+awards_id,
+candidate_id,	
+awards_name,
+project_name,
+awards_year,
+awards_institution_name
+)
+VALUES
+(
+1,
+1,
+'Using Eggplant to test restful services.',
+'People\'s Choice Award.',
+'2020',
+'EggPlant'
+);
+
+CREATE TABLE conference
+(
+    conference_id                SERIAL PRIMARY KEY,
+    candidate_id                 integer       NOT NULL,
+    role                         varchar(80)   NOT NULL,
+    conference_year              varchar(80)   NOT NULL,
+    topic                        varchar(80)   NOT NULL,
+	conference_institution_name  varchar(80)   NOT NULL
+);
+INSERT INTO conference
+(
+conference_id,
+candidate_id,	
+role,
+conference_year,
+topic,
+conference_institution_name
+)
+VALUES
+(
+1,
+1,
+'Volunteer',
+'DevCon',
+'2019',
+'Badge Pickup'
+);
+
+INSERT INTO conference
+(
+conference_id,
+candidate_id,	
+role,
+conference_year,
+topic,
+conference_institution_name
+)
+VALUES
+(
+2,
+1,
+'Talk Selection',
+'DevCon',
+'2020',
+'CI/CD Track.'
+);
+INSERT INTO conference
+(
+conference_id,
+candidate_id,	
+role,
+conference_year,
+topic,
+conference_institution_name
+)
+VALUES
+(
+3,
+1,
+'Speaker',
+'DevCon',
+'2020',
+'Shift-Left Testing by Engineer.'
+);
+INSERT INTO conference
+(
+conference_id,
+candidate_id,	
+role,
+conference_year,
+topic,
+conference_institution_name
+)
+VALUES
+(
+4,
+1,
+'Booth agent',
+'KCDC',
+'2020',
+'Community Engagement.'
+);
+
+CREATE TABLE open_source_contribution
+(
+    open_source_contribution_id                 SERIAL PRIMARY KEY,
+    candidate_id                  integer       NOT NULL,
+    issue                         varchar(1024)   NOT NULL,
+    product                       varchar(80)   NOT NULL,
+    evidence_url                  varchar(80)   NOT NULL
+);
+
+INSERT INTO open_source_contribution
+(
+open_source_contribution_id,
+candidate_id,	
+issue,
+product,
+evidence_url
+)
+VALUES
+(
+1,
+1,
+'Eclipse Based Applications Crash when drag and dropping object with other applications.',
+'Eclipse SDK 4.13',
+'https://github.com/iamankushpandit/eclipseDnDIssue'
+);

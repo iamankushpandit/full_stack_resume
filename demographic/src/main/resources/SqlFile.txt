@@ -1,0 +1,17 @@
+CREATE TABLE candidate
+(
+    candidate_id          SERIAL PRIMARY KEY,
+    candidate_first_name        varchar(80)   NOT NULL,
+	candidate_middle_name        varchar(80)   NOT NULL,
+	candidate_last_name        varchar(80)   NOT NULL,
+    candidate_first_address varchar(1024) NOT NULL,
+	candidate_second_address varchar(1024) NOT NULL,
+	candidate_city varchar(1024) NOT NULL,
+	candidate_state varchar(1024) NOT NULL,
+	candidate_contry varchar(1024) NOT NULL,
+	candidate_zip varchar(1024) NOT NULL,
+	candidate_email varchar(1024) NOT NULL,
+	candidate_phone_number varchar(1024) NOT NULL
+);
+
+INSERT INTO candidate (candidate_id,candidate_first_name,candidate_middle_name,candidate_last_name,candidate_first_address,candidate_second_address,candidate_city,candidate_state,candidate_contry,candidate_zip,candidate_email,candidate_phone_number) VALUES (1,'Ankush','Ved Mitra','Pandit','8119 w 144th Pl','','Overland Park','Kansas','USA','66223','ankush.pandit@gmail.com','3156011859');

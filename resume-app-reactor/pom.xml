@@ -1,0 +1,19 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.example.resume</groupId>
+	<artifactId>resume-app-reactor</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>Reactor for Resume Backend</name>
+	<packaging>pom</packaging>
+	<modules>
+		<module>../demographic/</module>
+		<module>../resume</module>
+		<module>../responsibilities</module>
+		<module>../headline</module>
+		<module>../experience</module>
+		<module>../education</module>
+		<module>../tools</module>
+	</modules>
+</project>

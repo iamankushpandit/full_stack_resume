@@ -1,0 +1,46 @@
+CREATE TABLE tools
+(
+    tool_id          SERIAL          PRIMARY KEY,
+    candidate_id     integer         NOT NULL,
+    tool_type        varchar(1024)   NOT NULL,
+    tools            varchar(1024)   NOT NULL 
+);
+
+INSERT INTO tools (tool_id,candidate_id,tool_type,tools) 
+VALUES (1,1,'Languages','Java, C, C++, .Net, PHP, Shell scripting, HTML, JSP, CSS, Java Script, Python and Eggplant(SenseTalk).');
+
+INSERT INTO tools (tool_id,candidate_id,tool_type,tools) 
+VALUES (2,1,'Frameworks','OSGI, GRPC.');
+
+INSERT INTO tools (tool_id,candidate_id,tool_type,tools) 
+VALUES (3,1,'Build tools','Maven, Jenkins and Gradle.');
+
+INSERT INTO tools (tool_id,candidate_id,tool_type,tools) 
+VALUES (4,1,'IDLs','ProtoBuf.');
+
+INSERT INTO tools (tool_id,candidate_id,tool_type,tools) 
+VALUES (5,1,'Platforms','Various Linux/Unix distributions, Windows family, WindRiver Linux, Red Hat Linux, VirtualBox.');
+
+INSERT INTO tools (tool_id,candidate_id,tool_type,tools) 
+VALUES (6,1,'Databases','GDBM, LDAP (Active Directory).');
+
+INSERT INTO tools (tool_id,candidate_id,tool_type,tools) 
+VALUES (7,1,'Web','Mongoose, IIS server, WAMP, Jetty.');
+
+INSERT INTO tools (tool_id,candidate_id,tool_type,tools) 
+VALUES (8,1,'Documentation','Doxygen, FogBugz, Microsoft Office, Notepad++, Kdiff.');
+
+INSERT INTO tools (tool_id,candidate_id,tool_type,tools) 
+VALUES (9,1,'Source Control','Github and SVN.');
+
+INSERT INTO tools (tool_id,candidate_id,tool_type,tools) 
+VALUES (10,1,'Network','Wireshark, Putty, FileZilla, WinSCP.');
+
+INSERT INTO tools (tool_id,candidate_id,tool_type,tools) 
+VALUES (11,1,'IDE','Eclipse, Visual Studio, NetBeans, WindRiver Workbench, QT Creator, InstallShield.');
+
+INSERT INTO tools (tool_id,candidate_id,tool_type,tools) 
+VALUES (12,1,'SCA tools','SonarQube.');
+
+INSERT INTO tools (tool_id,candidate_id,tool_type,tools) 
+VALUES (13,1,'Debug','BMC AppSight, Windbg, various Cerner’s in-house tools for code management.');

@@ -1,0 +1,44 @@
+{
+  "name": "cv",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.4",
+    "@testing-library/jest-dom": "^5.16.1",
+    "@testing-library/react": "^9.4.1",
+    "@testing-library/user-event": "^7.2.1",
+    "materialize-css": "^1.0.0-rc.2",
+    "moment": "^2.29.1",
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0",
+    "react-router-dom": "^5.1.2",
+    "react-router-hash-link": "^1.2.2",
+    "react-scripts": "^5.0.0",
+    "react-string-format": "^1.0.0",
+    "react-string-replace": "^0.4.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "react-anchor-link-smooth-scroll": "^1.0.12"
+  }
+}

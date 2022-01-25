@@ -1,0 +1,35 @@
+CREATE TABLE responsibilities
+(
+    responsibilities_id          		SERIAL          PRIMARY KEY,
+    candidate_id				        integer			NOT NULL,
+    responsibilities                    text[1024]      NOT NULL
+);
+
+
+INSERT INTO responsibilities
+(
+responsibilities_id,
+candidate_id,	
+responsibilities
+)
+VALUES
+(
+1,
+1,
+'{
+"Participating in the planning and scheduling of project tasks and major Service Record events.",
+"Processing and performing assigned project task in an efficient manner.",
+"Working closely with the upper management for planning, estimations, and troubleshooting.",
+"Design and develop programming systems while making specific determination about system performance.",
+"Responding promptly and professionally to bug and service reports.",
+"Review, report, and repair legacy code.",
+"Responsible for developing new tools and proofing the new applications to assure production of a quality product.",
+"Document code consistently throughout the development process by listing a description of the program and special instructions.",
+"Responsible for utilizing tools and equipment involved in performance of essential function of programming/debugging.",
+"Research and recommend software tools to the development, quality assurance and support teams and management.",
+"Aid in automation and quality assurance and support team as needed to determine system problems.",
+"Review, to the extent possible, changes in code and environment that will affect system performance.",
+"Interview new candidates for the company.",
+"Mentoring new members of the team and company."
+}'
+);
