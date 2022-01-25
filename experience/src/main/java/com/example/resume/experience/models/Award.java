@@ -9,10 +9,9 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
  * The POJO representing an Award for a Candidate.
- * 
+ *
  * @author Ankush Pandit
  */
-
 @Entity(name = "awards")
 @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 public class Award
