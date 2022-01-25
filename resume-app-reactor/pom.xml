@@ -9,7 +9,6 @@
 	<packaging>pom</packaging>
 	<modules>
 		<module>../demographic/</module>
-		<module>../resume</module>
 		<module>../responsibilities</module>
 		<module>../headline</module>
 		<module>../experience</module>

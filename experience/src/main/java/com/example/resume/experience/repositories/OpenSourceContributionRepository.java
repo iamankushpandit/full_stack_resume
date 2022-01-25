@@ -7,8 +7,21 @@ import org.springframework.data.jpa.repository.Query;
 
 import com.example.resume.experience.models.OpenSourceContribution;
 
+/**
+ * A {@link JpaRepository} for {@link OpenSourceContribution} object.
+ *
+ * @author Ankush Pandit
+ */
 public interface OpenSourceContributionRepository extends JpaRepository<OpenSourceContribution, Long>
 {
+    /**
+     * Added a method over the already provided {@link JpaRepository} based on a query
+     * that provides information specific to a given candidate. This is done as this
+     * method can not be anticipated and provided by spring framework.
+     *
+     * @param candidate_id the id of the candidate from which info needs to be extracted.
+     * @return a list of {@link OpenSourceContribution} for the candidate whose id is provided.
+     */
     @Query("FROM open_source_contribution WHERE candidate_id = ?1")
     List<OpenSourceContribution> findByCandidateId(final Long candidate_id);
 }

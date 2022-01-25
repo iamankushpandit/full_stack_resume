@@ -2,7 +2,6 @@ package com.example.resume.experience.controllers;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 import org.springframework.beans.BeanUtils;
@@ -24,8 +23,14 @@ import com.example.resume.experience.models.JobProfileWithCompanyInfo;
 import com.example.resume.experience.repositories.CompanyRepository;
 import com.example.resume.experience.repositories.JobProfileRepository;
 
+/**
+ * Rest controller for Job Profiles.
+ *
+ * @author Ankush Pandit
+ */
 @RestController
 @RequestMapping("/api/v1/job_profile")
+// The following is done to allow request from the react front end to be accepted.
 @CrossOrigin(origins = "http://localhost:3000", methods = { RequestMethod.OPTIONS, RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE }, allowedHeaders = "*", allowCredentials = "true")
 public class JobProfileController
 {
@@ -35,12 +40,21 @@ public class JobProfileController
     @Autowired
     private CompanyRepository companyRepository;
 
+    /**
+     * @return a list of all the {@link JobProfile}s.
+     */
     @GetMapping
     public List<JobProfile> list()
     {
         return jobProfileRepository.findAll();
     }
 
+    /**
+     * Get an {@link JobProfile} based on the given job_profile_id.
+     *
+     * @param job_profile_id The id of the {@link JobProfile} that needs to be fetched.
+     * @return the {@link JobProfile}.
+     */
     @GetMapping
     @RequestMapping("/{job_profile_id}")
     public JobProfile get(@PathVariable final String job_profile_id)
@@ -48,6 +62,13 @@ public class JobProfileController
         return jobProfileRepository.getById(Long.parseLong(job_profile_id));
     }
 
+    /**
+     * Return all the {@link JobProfile} for a given candidate.
+     *
+     * @param candidate_id the String id of the candidate.
+     *
+     * @return all {@link JobProfile}s for the given candidate_id.
+     */
     @GetMapping()
     @RequestMapping("/candidate_id/{candidate_id}")
     public List<JobProfile> getByCandidate_Id(@PathVariable final String candidate_id)
@@ -55,26 +76,28 @@ public class JobProfileController
         return jobProfileRepository.findByCandidateId(Long.parseLong(candidate_id));
     }
 
+    /**
+     * Return all the {@link JobProfileWithCompanyInfo} for a given candidate.
+     *
+     * @param candidate_id the String id of the candidate.
+     *
+     * @return all {@link JobProfileWithCompanyInfo}s for the given candidate_id.
+     */
     @GetMapping()
     @RequestMapping("/candidate_id_comp/{candidate_id}")
     public List<JobProfileWithCompanyInfo> getByCandidate_IdWithCompanyInfo(@PathVariable final String candidate_id)
     {
         final List<JobProfile> jobProfiles = jobProfileRepository.findByCandidateId(Long.parseLong(candidate_id));
-        Collections.sort(jobProfiles, new Comparator<JobProfile>()
-        {
-            @Override
-            public int compare(final JobProfile z1, final JobProfile z2)
+        Collections.sort(jobProfiles, (z1, z2) -> {
+            if (z1.getJob_profile_id() > z2.getJob_profile_id())
             {
-                if (z1.getJob_profile_id() > z2.getJob_profile_id())
-                {
-                    return 1;
-                }
-                if (z1.getJob_profile_id() < z2.getJob_profile_id())
-                {
-                    return -1;
-                }
-                return 0;
+                return 1;
             }
+            if (z1.getJob_profile_id() < z2.getJob_profile_id())
+            {
+                return -1;
+            }
+            return 0;
         });
         final List<JobProfileWithCompanyInfo> companyInfoJobProfileList = new ArrayList<>();
         for (final JobProfile jp : jobProfiles)
@@ -105,18 +128,36 @@ public class JobProfileController
         return companyInfoJobProfileList;
     }
 
+    /**
+     * Create a new {@link JobProfile}.
+     *
+     * @param jobProfile the {@link JobProfile} that needs to be created.
+     * @return the created {@link JobProfile}.
+     */
     @PostMapping
     public JobProfile create(@RequestBody final JobProfile jobProfile)
     {
         return jobProfileRepository.saveAndFlush(jobProfile);
     }
 
-    @DeleteMapping(value = "{id}")
+    /**
+     * Delete the {@link JobProfile}.
+     *
+     * @param award_id the job_profile_id of the {@link JobProfile} to be deleted.
+     */
+    @DeleteMapping(value = "{job_profile_id}")
     public void delete(@PathVariable final String job_profile_id)
     {
         jobProfileRepository.deleteById(Long.parseLong(job_profile_id));
     }
 
+    /**
+     * Update an existing {@link JobProfile}.
+     *
+     * @param job_profile_id The id of the {@link JobProfile} to be updated.
+     * @param jobProfile the new {@link JobProfile} object.
+     * @return the updated {@link JobProfile} object.
+     */
     @PutMapping(value = "{job_profile_id}")
     public JobProfile update(@PathVariable final String job_profile_id, @RequestBody final JobProfile jobProfile)
     {
