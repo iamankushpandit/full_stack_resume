@@ -7,11 +7,11 @@ class Skills extends React.Component
     this.state = {tools:["Holder for the Tools information. If you are seeing this please check the tools service."]};
   }
 
-  componentDidMount() 
+  componentDidMount()
   {
-    fetch("http://localhost:18087/api/v1/tools/candidate_id/1")
+    fetch("http://localhost:18086/api/v1/tools/candidate_id/1")
 		.then(res => res.json())
-		.then(data => this.setState({tools:data}));  
+		.then(data => this.setState({tools:data}));
   }
   render()
   {

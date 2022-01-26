@@ -157,3 +157,6 @@ dist
 .metadata/
 .settings/
 .project
+
+# postgres
+postgres-data/

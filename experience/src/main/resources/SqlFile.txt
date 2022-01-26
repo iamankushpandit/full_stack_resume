@@ -18,15 +18,15 @@ INSERT INTO company (company_id,company_name,company_first_address,company_secon
 
 CREATE TABLE job_profile
 (
-    job_profile_id          		SERIAL PRIMARY KEY,
-    candidate_id				integer			NOT NULL,
-	job_title   	     		varchar(1024)   NOT NULL,
-	company_id			 		integer			NOT NULL,
-	job_start_date				date			NOT NULL,
-	job_end_date				date			,
-	job_duties					text[1024]      NOT NULL,
-	job_highlights				text[1024]      NOT NULL,
-	current_job					boolean
+    job_profile_id                    SERIAL PRIMARY KEY,
+    candidate_id                integer         NOT NULL,
+	job_title                   varchar(1024)   NOT NULL,
+	company_id                  integer         NOT NULL,
+	job_start_date              date            NOT NULL,
+	job_end_date                date                    ,
+	job_duties                  text[1024]      NOT NULL,
+	job_highlights              text[1024]      NOT NULL,
+	current_job                 boolean
 );
 
 INSERT INTO job_profile

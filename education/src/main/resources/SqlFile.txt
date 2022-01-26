@@ -16,15 +16,6 @@ INSERT INTO degree (degree_id,candidate_id,degree_name,degree_complete_date,degr
 VALUES (2,1,'Bachelor of Engineering in Computer Science','May 2007','Pandit Ravishankar Shukla University','Raipur, CG, India','Mobile Application Prototyping.');
 
 
-CREATE TABLE certification
-(
-    certification_id                  SERIAL PRIMARY KEY,
-    candidate_id                      integer       NOT NULL,
-    certification_name                varchar(80)   NOT NULL,
-	certification_complete_date       varchar(80)   NOT NULL,
-	certification_institution_name    varchar(80)   NOT NULL,
-    certification_institution_address varchar(1024) NOT NULL,
-);
 
 CREATE TABLE certification
 (
@@ -62,7 +53,7 @@ certification_institution_name
 )
 VALUES
 (
-2,
+1,
 1,
 'RedHat Linux Essentials (RH003)',
 'August 2010',

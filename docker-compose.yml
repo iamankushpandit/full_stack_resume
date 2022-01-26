@@ -1,0 +1,125 @@
+---
+services:
+  demographicservice:
+    container_name: demographicservice
+    image: com.example.resume/demographic
+    ports:
+      -
+        published: 18081
+        target: 18081
+    depends_on:
+      - postgres
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/postgres
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=postgres
+
+  educationservice:
+    container_name: educationservice
+    image: com.example.resume/education
+    ports:
+      -
+        published: 18082
+        target: 18082
+    depends_on:
+      - postgres
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/postgres
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=postgres
+
+  experienceservice:
+    container_name: experienceservice
+    image: com.example.resume/experience
+    ports:
+      -
+        published: 18083
+        target: 18083
+    depends_on:
+      - postgres
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/postgres
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=postgres
+
+  headlineservice:
+    container_name: headlineservice
+    image: com.example.resume/headline
+    ports:
+      -
+        published: 18084
+        target: 18084
+    depends_on:
+      - postgres
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/postgres
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=postgres
+
+  responsibilitiesservice:
+    container_name: responsibilitiesservice
+    image: com.example.resume/responsibilities
+    ports:
+      -
+        published: 18085
+        target: 18085
+    depends_on:
+      - postgres
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/postgres
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=postgres
+
+  toolsservice:
+    container_name: toolsservice
+    image: com.example.resume/tools
+    ports:
+      -
+        published: 18086
+        target: 18086
+    depends_on:
+      - postgres
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/postgres
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=postgres
+
+  postgres:
+        image: postgres:latest
+        restart: always
+        environment:
+          - POSTGRES_USER=postgres
+          - POSTGRES_PASSWORD=postgres
+        logging:
+          options:
+            max-size: 10m
+            max-file: "3"
+        ports:
+          - '5432:5432'
+        volumes:
+          - ./postgres-data:/var/lib/postgresql/data
+          # copy the sql script to create tables
+          - ./sql/create_tables.sql:/docker-entrypoint-initdb.d/create_tables.sql
+          # copy the sql script to fill tables
+          - ./sql/fill_tables.sql:/docker-entrypoint-initdb.d/fill_tables.sql
+
+  frontend:
+    container_name: frontend
+    image: com.example.resume/frontend
+    volumes:
+      - ./:/usr/src/app
+      - '/app/node_modules'
+    ports:
+      - 3000:3000
+    depends_on:
+      - postgres
+      - demographicservice
+      - educationservice
+      - experienceservice
+      - headlineservice
+      - responsibilitiesservice
+      - toolsservice
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+
+version: "3.8"
