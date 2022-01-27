@@ -31,67 +31,50 @@ jobs:
         
     - name: Build Demographic Docker Image 
       run: mvn spring-boot:build-image -Dspring-boot.build-image.imageName=com.example.resume/demographic -f ./demographic/pom.xml
-    - name: Show the images and tags
-      run: docker images
     - name: Tag the image
       run: docker tag com.example.resume/demographic:latest ${{secrets.DOCKER_USER}}/demographic:latest
-    - name: Show the images and tags
-      run: docker images
     - name: Docker Push Demographic Docker Image
       run: docker push ${{secrets.DOCKER_USER}}/demographic:latest
     
     - name: Build Edudation Docker Image 
       run: mvn spring-boot:build-image -Dspring-boot.build-image.imageName=com.example.resume/education -f ./education/pom.xml
-    - name: Show the images and tags
-      run: docker images
     - name: Tag the image
       run: docker tag com.example.resume/education:latest ${{secrets.DOCKER_USER}}/education:latest
-    - name: Show the images and tags
-      run: docker images
     - name: Docker Push Education Docker Image
       run: docker push ${{secrets.DOCKER_USER}}/education:latest
       
     - name: Build Experience Docker Image 
       run: mvn spring-boot:build-image -Dspring-boot.build-image.imageName=com.example.resume/experience -f ./experience/pom.xml
-    - name: Show the images and tags
-      run: docker images
     - name: Tag the image
       run: docker tag com.example.resume/experience:latest ${{secrets.DOCKER_USER}}/experience:latest
-    - name: Show the images and tags
-      run: docker images
     - name: Docker Push Experience Docker Image
       run: docker push ${{secrets.DOCKER_USER}}/experience:latest
       
     - name: Build Headline Docker Image 
       run: mvn spring-boot:build-image -Dspring-boot.build-image.imageName=com.example.resume/headline -f ./headline/pom.xml
-    - name: Show the images and tags
-      run: docker images
     - name: Tag the image
       run: docker tag com.example.resume/headline:latest ${{secrets.DOCKER_USER}}/headline:latest
     - name: Show the images and tags
-      run: docker images
-    - name: Docker Push Headline Docker Image
       run: docker push ${{secrets.DOCKER_USER}}/headline:latest
       
     - name: Build Tools Docker Image 
       run: mvn spring-boot:build-image -Dspring-boot.build-image.imageName=com.example.resume/tools -f ./tools/pom.xml
-    - name: Show the images and tags
-      run: docker images
     - name: Tag the image
       run: docker tag com.example.resume/tools:latest ${{secrets.DOCKER_USER}}/tools:latest
-    - name: Show the images and tags
-      run: docker images
     - name: Docker Push Tools Docker Image
       run: docker push ${{secrets.DOCKER_USER}}/tools:latest
       
     - name: Build Responsibilities Docker Image 
       run: mvn spring-boot:build-image -Dspring-boot.build-image.imageName=com.example.resume/responsibilities -f ./responsibilities/pom.xml
-    - name: Show the images and tags
-      run: docker images
     - name: Tag the image
       run: docker tag com.example.resume/responsibilities:latest ${{secrets.DOCKER_USER}}/responsibilities:latest
-    - name: Show the images and tags
-      run: docker images
     - name: Docker Push Responsibilities Docker Image
       run: docker push ${{secrets.DOCKER_USER}}/responsibilities:latest
+      
+    - name: Build Forntend Docker Image 
+      run: docker build -t com.example.resume/frontend:latest ./mycv/
+    - name: Tag the image
+      run: docker tag com.example.resume/frontend:latest ${{secrets.DOCKER_USER}}/resume-frontend:latest
+    - name: Docker Push Responsibilities Docker Image
+      run: docker push ${{secrets.DOCKER_USER}}/resume-frontend:latest
     
