@@ -33,6 +33,6 @@ jobs:
     - name: Show the images and tags
       run: docker images
     - name: Docker Push Demographic Docker Image
-      run: docker push ${{secrets.DOCKER_USER}}/demographic:latest
+      run: docker push ${{secrets.DOCKER_USER}}/demographic
     
     
