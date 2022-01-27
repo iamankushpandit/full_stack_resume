@@ -29,12 +29,14 @@ jobs:
       run: |
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
     - name: Build Demographic Docker Image 
-      run: docker build ./demographic --file ./demographic/Dockerfile --tag demographic:latest
+      run: mvn spring-boot:build-image -Dspring-boot.build-image.imageName=com.example.resume/demographic
+    - name: Show the images and tags
+      run: docker images
     - name: Tag the image
-      run: docker tag demographic:latest demographic:latest
+      run: docker tag com.example.resume/demographic:latest ${{secrets.DOCKER_USER}}/demographic:latest
     - name: Show the images and tags
       run: docker images
     - name: Docker Push Demographic Docker Image
-      run: docker push ${{secrets.DOCKER_USER}}/demographic
+      run: docker push ${{secrets.DOCKER_USER}}/demographic:latest
     
     
