@@ -22,3 +22,15 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn -B package --file pom.xml
+    - name: Docker login
+      env:
+        DOCKER_USER: ${{secrets.DOCKER_USER}}
+        DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
+      run: |
+        docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
+    - name: Build Demographic Docker Image 
+      run: docker build . --file /demographic/Dockerfile -tag com.example.resume/demographic:$(date +%s)
+    - name: Docker Push Demographic Docker Image
+      run: docker push ${{secrets.DOCKER_USER}}/resume
+    
+    
