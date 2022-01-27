@@ -31,6 +31,6 @@ jobs:
     - name: Build Demographic Docker Image 
       run: docker build ./demographic --file ./demographic/Dockerfile --tag com.example.resume/demographic:$(date +%s)
     - name: Docker Push Demographic Docker Image
-      run: docker push ${{secrets.DOCKER_USER}}/resume
+      run: docker push ${{secrets.DOCKER_USER}}/com.example.resume/demographic
     
     
