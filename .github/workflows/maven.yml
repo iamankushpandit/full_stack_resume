@@ -29,7 +29,7 @@ jobs:
       run: |
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
     - name: Build Demographic Docker Image 
-      run: docker build ./demographic --file ./demographic/Dockerfile --tag com.example.resume/com.example.resume/demographic:latest
+      run: docker build ./demographic --file ./demographic/Dockerfile --tag demographic:latest
     - name: Show the images and tags
       run: docker images
     - name: Docker Push Demographic Docker Image
