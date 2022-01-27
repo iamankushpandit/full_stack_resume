@@ -8,11 +8,11 @@
 	<name>Reactor for Resume Backend</name>
 	<packaging>pom</packaging>
 	<modules>
-		<module>../demographic/</module>
-		<module>../responsibilities</module>
-		<module>../headline</module>
-		<module>../experience</module>
-		<module>../education</module>
-		<module>../tools</module>
+		<module>/demographic/</module>
+		<module>/responsibilities</module>
+		<module>/headline</module>
+		<module>/experience</module>
+		<module>/education</module>
+		<module>/tools</module>
 	</modules>
 </project>
