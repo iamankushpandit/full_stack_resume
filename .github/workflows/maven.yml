@@ -22,3 +22,11 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn -B package --file pom.xml
+    - name: Build, Push and Deploy to Heroku #set the whatever name you want to this step
+      id: heroku
+      uses: snithyanantham/docker-compose-multiple-apps-heroku-deploy@v1.0  # use the latest version of the action
+      with:
+       email: ${{ secrets.HEROKU_EMAIL }} # your heroku email
+       api_key: ${{ secrets.HEROKU_API_KEY }} # your  heroku api key
+       docker_compose_file: './docker-compose.heroku.yml' # set the path to the folder where the docker-compose file is located
+       heroku_apps: '[{"imagename":"com.example.resume/demographic"        ,  "appname":"demographicservice"       ,  "apptype":"web"},{"imagename":"com.example.resume/education"          ,  "appname":"educationservice"         ,  "apptype":"web"},{"imagename":"com.example.resume/experience"         ,  "appname":"experienceservice"        ,  "apptype":"web"}, {"imagename":"com.example.resume/headline"           ,  "appname":"headlineservice"          ,  "apptype":"web"}, {"imagename":"com.example.resume/responsibilities"   ,  "appname":"responsibilitiesservice"  ,  "apptype":"web"}, {"imagename":"com.example.resume/tools"              ,  "appname":"toolsservice"             ,  "apptype":"web"},  {"imagename":"com.example.resume/frontend"           ,  "appname":"forntend"                 ,  "apptype":"web"}]' 
