@@ -6,7 +6,7 @@ class About extends React.Component {
   constructor() {
     super();
     this.state = {
-      headline: ["Holder for About me. If you are seeing this please check headline service."],
+      headline: ["Holder for Headline Information. If you are seeing this please check headline service."],
       personal_info: ["Holder for Personal Information. If you are seeing this please check demographic service."],
       loading: true
     };
@@ -29,7 +29,7 @@ class About extends React.Component {
         <div className="card">
           <div className="card-content">
             <p>
-              <b>{this.state.headline}</b>
+            <img src={ImgProfile} alt='Loading' />
             </p>
           </div>
           <div className="card-action">
@@ -54,7 +54,7 @@ class About extends React.Component {
               <strong>PERSONAL INFO</strong>
             </h6>
             <div className="row mt">
-              <div className="col xl6 l6 m6 s12">
+              <div className="col xl6 l6 m6 s24">
                 <p>
                   <strong>Address:</strong> {this.state.personal_info.candidate_first_address},{this.state.personal_info.candidate_city}, {this.state.personal_info.candidate_state},{this.state.personal_info.candidate_contry} {this.state.personal_info.candidate_zip}
                 </p>
@@ -63,6 +63,9 @@ class About extends React.Component {
                 </p>
                 <p>
                   <strong>Phone:</strong> {this.state.personal_info.candidate_phone_number}
+                </p>
+                <p>
+                  <strong>Github:</strong> <a href={this.state.personal_info.candidate_github_url}>{this.state.personal_info.candidate_github_url}</a>
                 </p>
               </div>
             </div>
