@@ -1,11 +1,14 @@
 import React from 'react';
+import ImgProfile from '../../../images/loading.gif';
+
 
 class About extends React.Component {
   constructor() {
     super();
     this.state = {
       headline: ["Holder for About me. If you are seeing this please check headline service."],
-      personal_info: ["Holder for Personal Information. If you are seeing this please check demographic service."]
+      personal_info: ["Holder for Personal Information. If you are seeing this please check demographic service."],
+      loading: true
     };
   }
 
@@ -16,9 +19,28 @@ class About extends React.Component {
 
     fetch("http://localhost:18081/api/v1/demographic/")
       .then(res => res.json())
-      .then(data => this.setState({ personal_info: data[0] }));
+      .then(data => this.setState({ personal_info: data[0] }))
+      .then(() => this.setState({ loading: false}));
   }
   render() {
+    const { loading } = this.state;
+    if (loading) {
+      return (<div>
+        <div className="card">
+          <div className="card-content">
+            <p>
+              <b>{this.state.headline}</b>
+            </p>
+          </div>
+          <div className="card-action">
+            <h6>
+              <strong>PERSONAL INFO</strong>
+            </h6>
+            <img src={ImgProfile} alt='Loading' />
+          </div>
+        </div>
+      </div>);
+    }
     return (
       <div>
         <div className="card">

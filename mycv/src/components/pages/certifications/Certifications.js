@@ -1,30 +1,44 @@
 import React from 'react';
+import ImgProfile from '../../../images/loading.gif';
 
-class Certifications extends React.Component
-{
-	constructor()
-	{
+
+class Certifications extends React.Component {
+	constructor() {
 		super();
 		this.state = {
-			certifications: ["Holder for the Certification information. If you are seeing this please check the education service."]
+			certifications: ["Holder for the Certification information. If you are seeing this please check the education service."],
+			loading: true
 		};
 	}
 
-	componentDidMount()
-	{
+	componentDidMount() {
 		fetch("http://localhost:18082/api/v1/certification/candidate_id/1")
-		.then(res => res.json())
-		.then(data => this.setState({certifications:data}));
+			.then(res => res.json())
+			.then(data => this.setState({ certifications: data }))
+			.then(() => this.setState({loading:false}));
 	}
 
-	render()
-	{
-		return (
+	render() {
+		const { loading } = this.state;
+		if (loading) {
+			return (
+				<div>
+				<div class='card'>
+					<div class='card-content'>
+						<h6>
+							<i class='fas fa-certificate'></i><strong>  CERTIFICATIONS</strong>
+						</h6>
+						<img src={ImgProfile} alt='Loading' />
+					</div>
+				</div>
+			</div>
+			);
+		} return (
 			<div>
 				<div class='card'>
 					<div class='card-content'>
 						<h6>
-						<i class='fas fa-certificate'></i><strong>  CERTIFICATIONS</strong>
+							<i class='fas fa-certificate'></i><strong>  CERTIFICATIONS</strong>
 						</h6>
 						<table class='striped'>
 							<thead>
@@ -35,7 +49,7 @@ class Certifications extends React.Component
 								</tr>
 							</thead>
 							<tbody>
-							{this.state.certifications.map(cert => 
+								{this.state.certifications.map(cert =>
 									<tr>
 										<td>{cert.certification_name}</td>
 										<td>{cert.certification_complete_date}</td>

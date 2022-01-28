@@ -1,25 +1,41 @@
 import React from 'react';
+import ImgProfile from '../../../images/loading.gif';
+
 
 class Education extends React.Component {
 	constructor() {
 		super();
 		this.state = {
-			education: ["Holder for Education information. If you are seeing this please check the education service."]
+			education: ["Holder for Education information. If you are seeing this please check the education service."],
+			loading: true
 		};
 	}
 	componentDidMount() {
 		fetch("http://localhost:18082/api/v1/education/candidate_id/1")
 			.then(res => res.json())
-			.then(data => this.setState({ education: data }));
+			.then(data => this.setState({ education: data }))
+			.then(() => this.setState({loading:false}));
 	}
 
 	render() {
-		return (
+		const { loading } = this.state;
+		if (loading) {
+			return (<div>
+				<div class='card'>
+					<div class='card-content'>
+						<h6>
+							<i class='fas fa-graduation-cap'></i><strong>  EDUCATION</strong>
+						</h6>
+						<img src={ImgProfile} alt='Loading' />
+					</div>
+				</div>
+			</div>);
+		} return (
 			<div>
 				<div class='card'>
 					<div class='card-content'>
 						<h6>
-						<i class='fas fa-graduation-cap'></i><strong>  EDUCATION</strong>
+							<i class='fas fa-graduation-cap'></i><strong>  EDUCATION</strong>
 						</h6>
 						<table class='striped'>
 							<thead>
