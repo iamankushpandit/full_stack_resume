@@ -13,11 +13,7 @@ services:
       - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/postgres
       - SPRING_DATASOURCE_USERNAME=postgres
       - SPRING_DATASOURCE_PASSWORD=B4"f'-_s"a,yaVKM
-      - JAVA_TOOL_OPTIONS=-Xmx128000K
-    deploy:
-      resources:
-        limits:
-          memory: 750M
+      - JVM_OPTS=-Xmx127m -Xms100m -XX:MaxPermSize=127m
 
   educationservice:
     container_name: educationservice
@@ -32,11 +28,7 @@ services:
       - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/postgres
       - SPRING_DATASOURCE_USERNAME=postgres
       - SPRING_DATASOURCE_PASSWORD=B4"f'-_s"a,yaVKM
-    deploy:
-      resources:
-        limits:
-          cpus: '0.001'
-          memory: 620M
+      - JVM_OPTS=-Xmx127m -Xms100m -XX:MaxPermSize=127m
 
   experienceservice:
     container_name: experienceservice
@@ -51,11 +43,7 @@ services:
       - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/postgres
       - SPRING_DATASOURCE_USERNAME=postgres
       - SPRING_DATASOURCE_PASSWORD=B4"f'-_s"a,yaVKM
-    deploy:
-      resources:
-        limits:
-          cpus: '0.001'
-          memory: 620M
+      - JVM_OPTS=-Xmx127m -Xms100m -XX:MaxPermSize=127m
 
   headlineservice:
     container_name: headlineservice
@@ -70,11 +58,7 @@ services:
       - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/postgres
       - SPRING_DATASOURCE_USERNAME=postgres
       - SPRING_DATASOURCE_PASSWORD=B4"f'-_s"a,yaVKM
-    deploy:
-      resources:
-        limits:
-          cpus: '0.001'
-          memory: 620M
+      - JVM_OPTS=-Xmx127m -Xms100m -XX:MaxPermSize=127m
 
   responsibilitiesservice:
     container_name: responsibilitiesservice
@@ -89,11 +73,7 @@ services:
       - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/postgres
       - SPRING_DATASOURCE_USERNAME=postgres
       - SPRING_DATASOURCE_PASSWORD=B4"f'-_s"a,yaVKM
-    deploy:
-      resources:
-        limits:
-          cpus: '0.001'
-          memory: 620M
+      - JVM_OPTS=-Xmx127m -Xms100m -XX:MaxPermSize=127m
 
   toolsservice:
     container_name: toolsservice
@@ -108,11 +88,7 @@ services:
       - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/postgres
       - SPRING_DATASOURCE_USERNAME=postgres
       - SPRING_DATASOURCE_PASSWORD=B4"f'-_s"a,yaVKM
-    deploy:
-      resources:
-        limits:
-          cpus: '0.001'
-          memory: 620M
+      - JVM_OPTS=-Xmx127m -Xms100m -XX:MaxPermSize=127m
 
   postgres:
         image: postgres:latest
@@ -151,10 +127,5 @@ services:
       - toolsservice
     environment:
       - CHOKIDAR_USEPOLLING=true
-    deploy:
-      resources:
-        limits:
-          cpus: '0.001'
-          memory: 120M
 
 version: "3.3"
