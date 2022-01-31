@@ -1,3 +1,4 @@
 build:
   docker:
     web: demographic/Dockerfile
+    web: tools/Dockerfile
