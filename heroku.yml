@@ -1,4 +1,4 @@
 build:
   docker:
-    web: demographic/Dockerfile.heroku
-    web: tools/Dockerfile.heroku
+    api: demographic/Dockerfile.heroku
+    api: tools/Dockerfile.heroku
