@@ -2,7 +2,7 @@
 services:
   demographicservice:
     container_name: demographicservice
-    image: com.example.resume/demographic
+    image: ankushpandit/demographic
     ports:
       -
         published: 18081
@@ -12,11 +12,11 @@ services:
     environment:
       - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/postgres
       - SPRING_DATASOURCE_USERNAME=postgres
-      - SPRING_DATASOURCE_PASSWORD=postgres
+      - SPRING_DATASOURCE_PASSWORD=B4"f'-_s"a,yaVKM
 
   educationservice:
     container_name: educationservice
-    image: com.example.resume/education
+    image: ankushpandit/education
     ports:
       -
         published: 18082
@@ -26,11 +26,11 @@ services:
     environment:
       - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/postgres
       - SPRING_DATASOURCE_USERNAME=postgres
-      - SPRING_DATASOURCE_PASSWORD=postgres
+      - SPRING_DATASOURCE_PASSWORD=B4"f'-_s"a,yaVKM
 
   experienceservice:
     container_name: experienceservice
-    image: com.example.resume/experience
+    image: ankushpandit/experience
     ports:
       -
         published: 18083
@@ -40,11 +40,11 @@ services:
     environment:
       - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/postgres
       - SPRING_DATASOURCE_USERNAME=postgres
-      - SPRING_DATASOURCE_PASSWORD=postgres
+      - SPRING_DATASOURCE_PASSWORD=B4"f'-_s"a,yaVKM
 
   headlineservice:
     container_name: headlineservice
-    image: com.example.resume/headline
+    image: ankushpandit/headline
     ports:
       -
         published: 18084
@@ -54,11 +54,11 @@ services:
     environment:
       - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/postgres
       - SPRING_DATASOURCE_USERNAME=postgres
-      - SPRING_DATASOURCE_PASSWORD=postgres
+      - SPRING_DATASOURCE_PASSWORD=B4"f'-_s"a,yaVKM
 
   responsibilitiesservice:
     container_name: responsibilitiesservice
-    image: com.example.resume/responsibilities
+    image: ankushpandit/responsibilities
     ports:
       -
         published: 18085
@@ -68,11 +68,11 @@ services:
     environment:
       - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/postgres
       - SPRING_DATASOURCE_USERNAME=postgres
-      - SPRING_DATASOURCE_PASSWORD=postgres
+      - SPRING_DATASOURCE_PASSWORD=B4"f'-_s"a,yaVKM
 
   toolsservice:
     container_name: toolsservice
-    image: com.example.resume/tools
+    image: ankushpandit/tools
     ports:
       -
         published: 18086
@@ -82,14 +82,14 @@ services:
     environment:
       - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/postgres
       - SPRING_DATASOURCE_USERNAME=postgres
-      - SPRING_DATASOURCE_PASSWORD=postgres
+      - SPRING_DATASOURCE_PASSWORD=B4"f'-_s"a,yaVKM
 
   postgres:
         image: postgres:latest
         restart: always
         environment:
           - POSTGRES_USER=postgres
-          - POSTGRES_PASSWORD=postgres
+          - POSTGRES_PASSWORD=B4"f'-_s"a,yaVKM
         logging:
           options:
             max-size: 10m
@@ -105,7 +105,7 @@ services:
 
   frontend:
     container_name: frontend
-    image: com.example.resume/frontend
+    image: ankushpandit/resume-frontend
     volumes:
       - ./:/usr/src/app
       - '/app/node_modules'
