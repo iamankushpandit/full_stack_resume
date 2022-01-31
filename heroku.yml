@@ -1,4 +1,4 @@
 build:
   docker:
-    web: ankushpandit/demographic
-    web: ankushpandit/education
+    web: demographic/Dockerfile.heroku
+    web: tools/Dockerfile.heroku
