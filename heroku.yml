@@ -1,4 +1,4 @@
 build:
   docker:
-    web: demographic/Dockerfile
-    web: tools/Dockerfile
+    web: ankushpandit/demographic
+    web: ankushpandit/education
