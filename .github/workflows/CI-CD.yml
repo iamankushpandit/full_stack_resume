@@ -72,5 +72,5 @@ jobs:
       run: docker build -t com.example.resume/frontend:latest ./mycv/
     - name: Tag the image
       run: docker tag com.example.resume/frontend:latest ${{secrets.DOCKER_USER}}/resume-frontend:latest
-    - name: Docker Push Responsibilities Docker Image
+    - name: Docker Push Forntend Docker Image
       run: docker push ${{secrets.DOCKER_USER}}/resume-frontend:latest
