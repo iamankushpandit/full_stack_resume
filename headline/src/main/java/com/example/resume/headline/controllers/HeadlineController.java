@@ -25,7 +25,7 @@ import com.example.resume.headline.repositories.HeadlineRepository;
  */
 @RestController
 @RequestMapping("/api/v1/headline")
-@CrossOrigin(origins = "http://localhost:3000", methods = { RequestMethod.OPTIONS, RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE }, allowedHeaders = "*", allowCredentials = "true")
+@CrossOrigin(origins = "http://ec2-54-212-37-29.us-west-2.compute.amazonaws.com:3000", methods = { RequestMethod.OPTIONS, RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE }, allowedHeaders = "*", allowCredentials = "true")
 public class HeadlineController
 {
     @Autowired

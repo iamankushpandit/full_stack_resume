@@ -26,7 +26,7 @@ import com.example.resume.education.repositories.CertificationRepository;
 @RestController
 @RequestMapping("/api/v1/certification")
 // The following is done to allow request from the react front end to be accepted.
-@CrossOrigin(origins = "http://localhost:3000", methods = { RequestMethod.OPTIONS, RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE }, allowedHeaders = "*", allowCredentials = "true")
+@CrossOrigin(origins = "http://ec2-54-212-37-29.us-west-2.compute.amazonaws.com:3000", methods = { RequestMethod.OPTIONS, RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE }, allowedHeaders = "*", allowCredentials = "true")
 public class CertificationController
 {
     @Autowired
