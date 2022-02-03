@@ -12,7 +12,7 @@ class Certifications extends React.Component {
 	}
 
 	componentDidMount() {
-		fetch("http://localhost:18082/api/v1/certification/candidate_id/1")
+		fetch("http://ec2-35-87-1-56.us-west-2.compute.amazonaws.com:18082/api/v1/certification/candidate_id/1")
 			.then(res => res.json())
 			.then(data => this.setState({ certifications: data }))
 			.then(() => this.setState({loading:false}));

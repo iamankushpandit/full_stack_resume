@@ -11,7 +11,7 @@ class Responsibilities extends React.Component {
 		};
 	}
 	componentDidMount() {
-		fetch("http://localhost:18085/api/v1/responsibilities/candidate_id/1")
+		fetch("http://ec2-54-202-194-9.us-west-2.compute.amazonaws.com:18085/api/v1/responsibilities/candidate_id/1")
 			.then(res => res.json())
 			.then(data => this.setState({ responsibilities: data[0].responsibilities }))
 			.then(() => this.setState({loading:false}));

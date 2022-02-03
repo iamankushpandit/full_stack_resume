@@ -13,7 +13,7 @@ class OSS extends Component {
 	}
 
 	componentDidMount() {
-		fetch("http://localhost:18083/api/v1/open_source_contribution/candidate_id/1")
+		fetch("http://ec2-34-221-200-239.us-west-2.compute.amazonaws.com:18083/api/v1/open_source_contribution/candidate_id/1")
 			.then(res => res.json())
 			.then(data => this.setState({ oss: data }))
 			.then(() => this.setState({loading:false}));

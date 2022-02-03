@@ -12,7 +12,7 @@ class Skills extends React.Component {
   }
 
   componentDidMount() {
-    fetch("http://localhost:18086/api/v1/tools/candidate_id/1")
+    fetch("http://ec2-54-218-60-67.us-west-2.compute.amazonaws.com:18086/api/v1/tools/candidate_id/1")
       .then(res => res.json())
       .then(data => this.setState({ tools: data }))
       .then(() => this.setState({loading:false}));
