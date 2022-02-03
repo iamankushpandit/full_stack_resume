@@ -13,11 +13,11 @@ class About extends React.Component {
   }
 
   componentDidMount() {
-    fetch("http://localhost:18084/api/v1/headline/candidate_id/1")
+    fetch("http://ec2-52-34-46-190.us-west-2.compute.amazonaws.com:18084/api/v1/headline/candidate_id/1")
       .then(res => res.json())
       .then(data => this.setState({ headline: data[0].headline }));
 
-    fetch("http://localhost:18081/api/v1/demographic/")
+    fetch("http://ec2-34-219-26-110.us-west-2.compute.amazonaws.com:18081/api/v1/demographic/")
       .then(res => res.json())
       .then(data => this.setState({ personal_info: data[0] }))
       .then(() => this.setState({ loading: false}));
