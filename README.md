@@ -32,3 +32,5 @@ The idea is to build a resume application where the collection of different attr
 
 ## Future Thoughts:
 Breaking the UI in to micro front end architecture.
+
+https://bit.ly/3LkzcX5
