@@ -22,7 +22,7 @@ export default class Home extends Component {
 
 	componentDidMount()
 	{
-		fetch("http://ec2-34-219-26-110.us-west-2.compute.amazonaws.com:18081/api/v1/demographic/")
+		fetch("http://ec2-54-187-150-12.us-west-2.compute.amazonaws.com:18081/api/v1/demographic/")
 		.then(res => res.json())
 		.then(data => this.setState({personal_info:data[0]}));
 	}

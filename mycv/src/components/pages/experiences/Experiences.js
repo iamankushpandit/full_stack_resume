@@ -13,7 +13,7 @@ class Experiences extends React.Component {
   }
 
   componentDidMount() {
-    fetch("http://ec2-34-221-200-239.us-west-2.compute.amazonaws.com:18083/api/v1/job_profile/candidate_id_comp/1")
+    fetch("http://ec2-34-221-98-135.us-west-2.compute.amazonaws.com:18083/api/v1/job_profile/candidate_id_comp/1")
       .then(res => res.json())
       .then(data => this.setState({ experience: data }))
       .then(() => this.setState({loading:false}));

@@ -13,7 +13,7 @@ class Conferences extends Component {
 	}
 
 	componentDidMount() {
-		fetch("http://ec2-34-221-200-239.us-west-2.compute.amazonaws.com:18083/api/v1/conference/candidate_id/1")
+		fetch("http://ec2-34-221-98-135.us-west-2.compute.amazonaws.com:18083/api/v1/conference/candidate_id/1")
 			.then(res => res.json())
 			.then(data => this.setState({ conferences: data }))
 			.then(() => this.setState({loading:false}));
