@@ -39,7 +39,7 @@ class Responsibilities extends React.Component {
 							<i class="fas fa-dumbbell"></i><strong>  RESPONSIBILITIES</strong>
 						</h6>
 						<blockquote className="no-pad">
-							{String(this.state.responsibilities).replaceAll(',', '').split(".").map(responsibility => responsibility && responsibility !== ' ' ? <ul><b>&gt;</b> {responsibility}.</ul> : '')}
+							{String(this.state.responsibilities).replaceAll(',', '').split(".").map(responsibility => responsibility && responsibility !== ' ' ? <ul><i class="fas fa-arrow-circle-right"></i> {responsibility}.</ul> : '')}
 						</blockquote>
 					</div>
 				</div>

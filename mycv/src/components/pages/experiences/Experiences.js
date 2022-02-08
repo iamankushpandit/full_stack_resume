@@ -58,7 +58,7 @@ class Experiences extends React.Component {
                         <strong>Duties:</strong>
                       </h6>
 
-                      {String(xp.job_duties).replaceAll(',', '').split(".").map(duty => duty && duty !== ' ' ? <ul><b>-</b> {duty}.</ul> : '')}
+                      {String(xp.job_duties).replaceAll(',', '').split(".").map(duty => duty && duty !== ' ' ? <ul><i class="fas fa-bullseye"></i> {duty}.</ul> : '')}
 
                       {
                         xp.job_highlights && xp.job_highlights.length === 0 ?
