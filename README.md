@@ -28,5 +28,7 @@ The idea is to build a resume application where the collection of different attr
 
 ## Outcome
 
+## CI-CD
+
 ## Future Thoughts:
 Breaking the UI in to micro front end architecture.
