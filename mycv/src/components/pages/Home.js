@@ -9,6 +9,7 @@ import Education from './education/Education';
 import Certifications from './certifications/Certifications';
 import Conferences from './conferences/Conferences';
 import Awards from './awards/Awards';
+import Credits from './credits/Credits'
 import OSS from './OSS/OSS';
 
 export default class Home extends Component {
@@ -48,6 +49,7 @@ export default class Home extends Component {
 							<OSS/>
 							<Conferences/>
 							<Awards/>
+							<Credits/>
 						</div>
 					</div>
 				</div>
