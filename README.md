@@ -16,6 +16,7 @@ This project is a POC project to show how a full stack application can be starte
 The idea is to build a resume application where the collection of different attributes of a candidate can demonstarte the use of the stack mentioned above. Utilizing the micro frontend and micro service architecture it will be a good idea to divide all these attribute section in to a vertical slice i.e. Each section of the resume should be supported by different set of micro services so that if one fails the whole resume UI should be effected.
 
 ## Architecture
+![Architecture](https://github.com/iamankushpandit/full_stack_resume/blob/main/fsr.png?raw=true)
 
 ## Outcome
 
