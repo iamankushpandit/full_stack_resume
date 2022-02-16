@@ -122,7 +122,7 @@ The cost of the above setup is about $2.40 per day. Which is still higher than e
 
 ## Outcome
 
-This web app is hosted at https://bit.ly/3LkzcX5 . If the site is down, I have run out of budget to keep it hosted 24/7. If you would like to take a look at the site please contact me at ankush.pandit@gmail.com and I will love to bring it live for you.
+This web app is hosted at [https://bit.ly/3LkzcX5](https://bit.ly/3LkzcX5) . If the site is down, I have run out of budget to keep it hosted 24/7. If you would like to take a look at the site please contact me at ankush.pandit@gmail.com and I will love to bring it live for you.
 
 ## CI-CD
 The CI-CD is baed on Github actions. This option was chosen to keep the cost down. As this project is open source the github actions are free. This was desined in a way that each time we pust a change to the main branch, each service is then compiled, built, dockerize, taged and deployed as an image on DockerHub.
