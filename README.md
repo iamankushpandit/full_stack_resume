@@ -22,16 +22,18 @@ Also even thought the rest services did not need to be fully CRUD in this resume
 
 The application is divided in to 3 layers. These 3 layers can be divided in to 8 services:
 #### A. Fornt-end : 
-  1. resume-frontend : This service is built using react js and node js and dockerized.
+1. resume-frontend : This service is built using react js and node js and dockerized.
+
 #### B. Data Base : 
-  1. postgres : This service is a postgresql db with table listed in the image above and dockerized.
+1. postgres : This service is a postgresql db with table listed in the image above and dockerized.
+
 #### C. Rest services:
-  1. demographicservice : This service is a CRUD springboot service that manages demograophic information for a candidate. 
-  2. educationservice : This service is a CRUD springboot service that manages education infomration like degrees and certification for a candidate. 
-  3. experienceservice : This service is a CRUD springboot service that manages experience infomration like Job profiles, Awards, Conference and open source contributions for a candidate
-  4. headlineservice : This service is a CRUD springboot service that manages one paragraph detailing infomation about a candidate. 
-  5. responsibilitiesservice : This service is a CRUD springboot service that manages responsibilities inforamation for a candidate. 
-  6. toolsservice : This service is a CRUD springboot service that manages education infomration like skills in different tools for a candidate. 
+1. demographicservice : This service is a CRUD springboot service that manages demograophic information for a candidate. 
+2. educationservice : This service is a CRUD springboot service that manages education infomration like degrees and certification for a candidate. 
+3. experienceservice : This service is a CRUD springboot service that manages experience infomration like Job profiles, Awards, Conference and open source contributions for a candidate
+4. headlineservice : This service is a CRUD springboot service that manages one paragraph detailing infomation about a candidate. 
+5. responsibilitiesservice : This service is a CRUD springboot service that manages responsibilities inforamation for a candidate. 
+6. toolsservice : This service is a CRUD springboot service that manages education infomration like skills in different tools for a candidate. 
 
 #### Docker Files
 Docker files for the services are similar and contain the following:
