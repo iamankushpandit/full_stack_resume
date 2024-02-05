@@ -13,7 +13,7 @@ This project is a POC project to show how a full stack application can be starte
 
 
 ## Idea
-The idea is to build a resume application where the collection of different attributes of a candidate can demonstarte the use of the stack mentioned above. Utilizing the micro frontend and micro service architecture it will be a good idea to divide all these attribute section in to a vertical slice i.e. Each section of the resume should be supported by different set of micro services so that if one fails the whole resume UI should be effected.
+The idea is to build a resume application where the collection of different attributes of a candidate can demonstarte the use of the stack mentioned above. Utilizing the micro frontend and micro service architecture it will be a good idea to divide all these attribute section in to a vertical slice i.e. Each section of the resume should be supported by different set of micro services so that if one fails the whole resume UI should not be effected.
 
 Also even thought the rest services did not need to be fully CRUD in this resume web application they were designed to be fully CRUD so that if the application is ever advanced to be a used for other applicant there can be other UI components that can be created for entering and updating details.
 
